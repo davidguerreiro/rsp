@@ -1,0 +1,436 @@
+/* Hearths ul */
+.health-container {
+  list-style-type: none;
+  clear: both;
+  overflow: hidden;
+}
+
+.health-container li {
+  display: inline-block;
+  padding: 5px;
+}
+
+.health-container li .fa-heart {
+  color: #FA5858;
+}
+
+
+
+.main__main-menu li a {
+/*  -moz-transition: color 0.5s ease;
+    -webkit-transition: color 0.5s ease;
+  */
+}
+
+/*
+* Colors
+*
+* Main Background Color: #FFF3C8
+* Sidebar Background Color: #343554
+* Header Background Color: #7377CC
+*
+*/
+
+
+/* GENERAL SECTIONS AND BLOCKS */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#main {
+  overflow: hidden;
+  clear: both;
+}
+.game-section, .main-sidebar {
+  float : left;
+  padding-bottom: 100%;
+  margin-bottom: -100%;
+  font-family: 'Overpass Mono', monospace;
+}
+
+.game-section {
+  width: 70%;
+  background-color: #C1CDCF;
+}
+
+.main-sidebar {
+  width: 30%;
+  background-color: #2D3030;
+}
+
+.main__p-wrapper {
+  padding: 30px;
+}
+
+.main-header, .main-footer  {
+  background-color: #2D3030;
+}
+
+.main-footer {
+  overflow: hidden;
+  clear: left;
+  background-color: #1F1E1C;
+}
+
+.player-data {
+  overflow: hidden;
+  clear: both;
+  background-color: #7EAADD;
+  padding: 10px;
+}
+
+.console {
+
+  background-color: #463E59;
+  color: white;
+  height: 120px !important;
+  max-height: 120px;
+  overflow: hidden;
+  font-size: 15px;
+  border-bottom: 2px solid #9AA1A6;
+
+}
+
+.game-board__icon-container {
+  display: block;
+  width: 100px;
+  padding: 15px 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 25px auto;
+}
+
+.player-1-icon, .player-2-icon {
+  font-size: 60px;
+  display: block;
+  text-align: center;
+}
+
+.game-sidebar__ul li {
+  background-color:
+}
+
+
+/* TITLES */
+
+.main__title {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 35px;
+}
+
+/* STATUS */
+
+
+/* LISTS */
+
+.main-header .header {
+  list-style-type: none;
+  color: white;
+  padding: 15px 0;
+}
+
+.main-header .header li {
+  padding-left: 10px;
+}
+
+.main__icons {
+  width: 400px;
+  margin: 50px auto;
+}
+
+.main__icons li{
+  display: inline-block;
+  padding: 15px 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-left: 35px;
+}
+
+.main__icons li i {
+  font-size: 60px;
+}
+
+.health-container {
+  list-style-type: none;
+  clear: both;
+  overflow: hidden;
+  padding-top: 8px;
+}
+
+.health-container li {
+  display: inline-block;
+  padding: 5px;
+}
+
+.health-container li .fa-heart {
+  color: #FA5858;
+}
+
+.main-sidebar__ul li {
+  border-bottom: 1px solid #D2D7E8;
+}
+
+.main-footer__social-nav {
+  float: right;;
+  width: 100px;
+}
+
+.main-footer__social li {
+  display: inline-block;
+  padding: 25px 10px;
+}
+
+.main-footer__social li a i{
+  font-size: 22px;
+  color: white;
+}
+
+.main-footer__nav {
+  clear: both;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.main-footer__nav ul li {
+  display: inline-block;
+  padding: 0 10px 10px 10px;
+}
+
+.player-data__ul li {
+  padding-top: 5px;
+}
+
+
+.player-data__ul li span {
+  color: white;
+  font-weight: bold;
+}
+
+.player-2 {
+  float: right;
+}
+
+.player-2-health-wrapper {
+  overflow: hidden;
+  clear: both;
+}
+
+#player-2-lives{
+  float: right;
+}
+
+.console-menu__main {
+  width: 400px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+.console-menu__main li {
+  display: inline-block;
+}
+
+.console-menu__block li {
+  display: block;
+}
+
+.game-sidebar__sub-ul li {
+  background-color: #463E59;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.help-option {
+  background-color: #3F4647 !important;
+  font-size: 14px !important;
+}
+
+.player-option, .bag-a {
+  cursor: pointer;
+  -moz-transition: padding-left 0.5s ease;
+	-webkit-transition: padding-left 0.5s ease;
+}
+
+.player-option i {
+  font-size: 22px;
+  padding-right: 5px;
+}
+
+.player-option:hover, .bag-a:hover {
+  padding-left: 20px;
+}
+
+/* P */
+
+.main__p {
+  width: 80%;
+  font-size: 18px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.main-sidebar__p {
+  width: 90%;
+  margin: 20px auto 20px 18px;
+  color: white;
+}
+
+.main-footer__author {
+  width: 400px;
+  color: white;
+  padding: 10px;
+  float: left;
+}
+
+.console__p {
+  width: 80%;
+  margin: 0 auto 0 25px;
+  padding: 30px 0;
+}
+
+.item-q {
+  float: right;
+}
+
+.item-q__indicator {
+  font-size: 13px;
+}
+
+/* FORMS */
+
+#new-game-form {
+  width: 300px;
+  margin-left: 15px;
+  padding: 20px 0 15px 0;
+}
+
+#new-game-form label {
+  color: white;
+}
+
+#new-game-form input {
+  margin: 10px 0;
+}
+
+#new-game-form input[type=text] {
+  padding: 12px;
+  border: 0px;
+  border-radius: 5px;
+}
+
+#new-game-form input[type=submit] {
+  border: 0px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+/* LINKS */
+
+.main-sidebar__a {
+  display: block;
+  background-color: #6A6D75;
+  color: white;
+  padding: 20px 0 20px 10px;
+  -moz-transition: background-color 0.5s ease;
+	-webkit-transition: background-color 0.5s ease;
+}
+
+.main-sidebar__a:hover {
+  background-color: #575651;
+}
+
+.main-sidebar__internal-link {
+  display: block;
+  width: 120px;
+  margin: 10px 0 20px 18px;
+  border: 0px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: buttonface;
+  color: black;
+}
+
+.main-footer__author a, .main-footer__nav-link {
+  color: #F7FEFF;
+  -moz-transition: border-bottom 0.5s ease;
+	-webkit-transition: border-bottom 0.5s ease;
+}
+
+.main-footer__author a:hover, .main-footer__nav-link:hover {
+  border-bottom: 1px dotted #F7FEFF;
+}
+
+.main-footer__nav-link {
+  font-size: 12px;
+}
+
+.fa-twitter, .fa-github-alt {
+  -moz-transition: color 0.5s ease;
+	-webkit-transition: color 0.5s ease;
+}
+
+.fa-twitter:hover {
+  color : #1da1f2;
+}
+
+.fa-github-alt:hover {
+  color: #D29AFF
+}
+
+.console-option__a {
+  color: #000000;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 5px solid #000000;
+  -moz-transition: background-color 0.5s ease;
+	-webkit-transition: background-color 0.5s ease;
+}
+
+.console-option__a i{
+  display: block;
+  font-size: 30px;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.console-option__a:hover {
+  background-color: #679163;
+}
+
+.console-menu__block a {
+  width: 100%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.console-menu__block a i {
+  display: inline-block;
+  padding: 0 10px 0 0;
+}
+
+.bag-a {
+  color: white;
+}
