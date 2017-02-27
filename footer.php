@@ -20,7 +20,7 @@
       <nav class="main-footer__nav">
         <ul>
           <li><a href="terms-and-conditions.php" class="main-footer__nav-link" title="Terms and conditions">Terms and Conditions</a></li>
-          <li><a href="https://github.com/davidguerreiro" class="main-footer__nav-link" title="Open Source">Colaborate</a></li>
+          <li><a href="https://github.com/davidguerreiro/rsp" class="main-footer__nav-link" title="Open Source" target="_blank">Colaborate</a></li>
           <li><a href="changelog.php" class="main-footer__nav-link" title="See Changelog">Version <?php echo VERSION; ?> - <?php echo STATUS; ?></a></li>
         </ul>
       </nav>
