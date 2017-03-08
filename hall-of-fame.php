@@ -18,14 +18,26 @@ require( 'header.php' );
   <ul class="page-list">
     <li>
       <ul class="page-list-sub">
-        <li>Player name</li>
-        <li>00/00/2010 12:12:12</li>
+        <li class="page-list-sub__player-name">Player name</li>
+        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
       </ul>
     </li>
     <li>
       <ul class="page-list-sub">
-        <li>Player name</li>
-        <li>00/00/2010 12:12:12</li>
+        <li class="page-list-sub__player-name">Player nameasdasdasd</li>
+        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
+      </ul>
+    </li>
+    <li>
+      <ul class="page-list-sub">
+        <li class="page-list-sub__player-name">Player name</li>
+        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
+      </ul>
+    </li>
+    <li>
+      <ul class="page-list-sub">
+        <li class="page-list-sub__player-name">Player name</li>
+        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
       </ul>
     </li>
   </ul>

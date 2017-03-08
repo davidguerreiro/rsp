@@ -139,6 +139,14 @@ a {
   font-size: 35px;
 }
 
+.page-title {
+  margin: 35px 0 25px 30px;
+}
+
+.page-subtitle {
+  margin: 25px 0 25px 30px;
+}
+
 /* STATUS */
 
 
@@ -281,6 +289,41 @@ a {
   padding-left: 20px;
 }
 
+.page-list {
+  margin: 15px 0 15px 25px;
+  background-color: #4C4C49;
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  max-width: 700px;
+}
+
+.page-list li {
+  padding: 15px 0;
+}
+
+.page-list-sub {
+  clear: both;
+  overflow: hidden;
+}
+
+.page-list-sub li {
+  float: right;
+}
+
+.page-list-sub__player-name {
+  float: left !important;
+  font-weight: bold;
+  padding-left: 10px !important;
+}
+
+.page-list-sub__player-date {
+  border-left: 1px dotted #FF8F2B;
+  padding-left: 50px !important;
+  padding-right: 10px !important;
+}
+
 /* P */
 
 .main__p {
@@ -317,6 +360,11 @@ a {
   font-size: 13px;
 }
 
+.page-text {
+  margin: 15px 0 15px 30px;
+  width: 80%;
+  max-width: 700px;
+}
 /* FORMS */
 
 #new-game-form {
