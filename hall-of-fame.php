@@ -2,7 +2,7 @@
 
 //This is the Hall of fame sidebar
 
-require( 'head.php' );
+require( 'header.php' );
 
 
 ?>

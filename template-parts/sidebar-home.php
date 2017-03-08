@@ -35,7 +35,7 @@
           <p class="main-sidebar__p">
               The hall of fame has records of the players who have been skillful enough to beat the game. Is your name the recorded for all the eternity ?
           </p>
-          <a href="hall-of-the-fame.php" class="main-sidebar__internal-link" title="See Hall of the Fame">See the Hall</a>
+          <a href="hall-of-fame.php" class="main-sidebar__internal-link" title="See Hall of the Fame">See the Hall</a>
         </li>
         <li class="hidden" id="game-sidebar-element">
             <a href="#" id="exit" class="main-sidebar__a" title="Exit game" data-field="exit-container">Exit</a>
