@@ -9,7 +9,7 @@
 
 ?>
     </section>
-    <foozter class="main-footer main_margin">
+    <footer class="main-footer main_margin">
       <p class="main-footer__author">Made with love by <a href="https://uk.linkedin.com/in/davidguerreiro14" target="_blank">David Guerreiro</a></p>
       <nav class="main-footer__social-nav">
         <ul class="main-footer__social">
