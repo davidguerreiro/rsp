@@ -1,5 +1,8 @@
 <?php
 
+//php functions
+require_once( './inc/utilities.php' );
+
 /**
 *
 * Header template. Initially no HTML will be displayed here

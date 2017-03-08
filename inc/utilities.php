@@ -24,6 +24,8 @@
 * File name must be passed as a parameter.
 * Do not include extension.
 *
+* Call this function from root
+*
 * @param String ( required ) $file_name
 * @return String $content
 */
@@ -34,7 +36,11 @@ function ppt_get_json_content( $file_name ) {
   if( !is_string( $file_name ) || $file_name == '' )
      return $content;
 
+  $path    = './json/' . $file_name . '.json';
+  $content = json_decode( file_get_contents( $path ) );
+
   return $content;
+
 }
 
 ?>
