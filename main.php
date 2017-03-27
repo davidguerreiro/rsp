@@ -1,6 +1,8 @@
 <?php
 
-  //Main template
+  /**
+  * Main template
+  */
   require_once( 'header.php' );
 
   $is_game_template = false;

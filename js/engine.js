@@ -1,5 +1,6 @@
-
-//Logic engine
+/**
+*
+*/
 
 
 //GENERATE CPU OPTION RESPONSE
@@ -13,8 +14,8 @@
 function generate_random_number() {
 
   let number = 0;
-  let min = 0;
-  let max = 100;
+  let min    = 0;
+  let max    = 100;
 
   number = Math.floor( Math.random() * ( max - min + 1 ) + min );
 
@@ -119,7 +120,7 @@ function get_cpu_option( current ) {
 
 }
 
-//GAME UPDATING
+// GAME UPDATING
 
 /**
 *
@@ -136,19 +137,19 @@ function add_percentage( item,  qt ) {
     message : ''
   };
 
-  //item should be a valid choice
+  // item should be a valid choice
   if( item !== 'rock' && item !== 'paper' && item !== 'scrss' ) {
     response.message = 'Invalid item / choice parameter';
     return response;
   }
 
-  //quantity should be a valid value
+  // quantity should be a valid value
   if( qt < 0 || qt > 99.99 ) {
     response.message = 'Invalid quantity. This should be higer than 0 and less than 99.99';
     return response;
   }
 
-  //init state of each choice
+  // init state of each choice
   let current = {
     rock : 33.33,
     paper : 33.33,
@@ -157,7 +158,7 @@ function add_percentage( item,  qt ) {
 
   let to_divide = parseFloat( qt / 2 );
 
-  //recalculating rest of the options to balance the percentages
+  // recalculating rest of the options to balance the percentages
   for( var key in current ) {
 
     if( key == item )
@@ -170,7 +171,7 @@ function add_percentage( item,  qt ) {
 
   }
 
-  response.current = current;
+  response.current     = current;
   response.percentages = parseFloat( current.rock + current.paper + current.scrss );
 
   if( response.percentages < 100 )
