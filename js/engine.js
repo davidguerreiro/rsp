@@ -1,9 +1,13 @@
 /**
 *
+* Game Engine
+*
+* Build with vanilla js.
+*
 */
 
 
-//GENERATE CPU OPTION RESPONSE
+// GENERATE CPU OPTION RESPONSE
 
 /**
 *
@@ -94,7 +98,7 @@ function get_options_ranges( stats ) {
 
 /**
 *
-* This function returns the CPU option choosen
+* Returns the CPU option choosen
 *
 * @param {object} current
 * @return {String} cpu_option
@@ -203,7 +207,7 @@ function check_min_max( value ) {
 
 }
 
-//GAME LOGIC
+// GAME LOGIC
 
 /**
 *

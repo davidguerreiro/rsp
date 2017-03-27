@@ -1,13 +1,15 @@
 <?php
 
-//This is the Hall of fame sidebar
+
+/**
+ * Hall of fame template
+ *
+ * @since 1.0.0
+ */
 
 require( 'header.php' );
 
-//get best players data
-$players = ppt_get_json_content( 'best_players' 
-
-
+$players = ppt_get_json_content( 'best_players' );
 
 ?>
 
