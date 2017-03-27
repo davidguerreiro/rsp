@@ -5,9 +5,7 @@
 require( 'header.php' );
 
 //get best players data
-$players = ppt_get_json_content( 'best_players' );
-var_dump( $players );
-die();
+$players = ppt_get_json_content( 'best_players' 
 
 
 

@@ -1,6 +1,8 @@
 <?php
 
-//Template fot the About page
+/**
+* About page template
+*/
 
 require( 'header.php' );
 
