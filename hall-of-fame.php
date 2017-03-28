@@ -28,6 +28,7 @@ $players = ppt_get_best_players();
   ?>
        <ul class="page-list">
         <?php
+        
          foreach( $players as $player ) :
 
         ?>

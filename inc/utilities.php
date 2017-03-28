@@ -49,16 +49,16 @@ function ppt_get_json_content( $file_name ) {
  * @return Array $players 
  */
 function ppt_get_best_players() {
-  
-	$json_content = ppt_get_json_content( 'best_players' );
+ 
+  $json_content = ppt_get_json_content( 'best_players' );
 
-	if( is_object( $json_content ) 
-		&& property_exists( $json_content, 'players')
-		&& is_array( $json_content->players ) 
-	  )
-	   return $json_content->players;
+  if( is_object( $json_content ) 
+      && property_exists( $json_content, 'players')
+      && is_array( $json_content->players ) 
+  ) 
+    return $json_content->players;
 
-	 return array();
+  return array();
 
 }
 
