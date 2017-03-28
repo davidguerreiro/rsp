@@ -10,8 +10,6 @@
 require( 'header.php' );
 
 $players = ppt_get_best_players();
-var_dump( $players );
-die();
 
 ?>
 
@@ -26,34 +24,27 @@ die();
 
   <?php
 
-     
+     if( is_array( $players ) && count( $players ) > 0 ):
   ?>
-  <ul class="page-list">
-    <li>
-      <ul class="page-list-sub">
-        <li class="page-list-sub__player-name">Player name</li>
-        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
-      </ul>
-    </li>
-    <li>
-      <ul class="page-list-sub">
-        <li class="page-list-sub__player-name">Player nameasdasdasd</li>
-        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
-      </ul>
-    </li>
-    <li>
-      <ul class="page-list-sub">
-        <li class="page-list-sub__player-name">Player name</li>
-        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
-      </ul>
-    </li>
-    <li>
-      <ul class="page-list-sub">
-        <li class="page-list-sub__player-name">Player name</li>
-        <li class="page-list-sub__player-date">00/00/2010 12:12:12</li>
-      </ul>
-    </li>
-  </ul>
+       <ul class="page-list">
+        <?php
+         foreach( $players as $player ) :
+
+        ?>
+         <li>
+           <ul class="page-list-sub">
+             <li class="page-list-sub__player-name"><?php echo $player->name; ?></li>
+             <li class="page-list-sub__player-date"><?php echo $player->date; ?></li>
+           </ul>
+         </li>
+
+         <?php
+          endforeach;
+         ?>
+       </ul>
+  <?php
+     endif;
+  ?>
 </section>
 
 
