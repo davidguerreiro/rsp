@@ -1,6 +1,10 @@
 <?php
 
-//This is the template for the Changelog page
+/**
+ * Changelog template
+ *
+ * @since 1.0.0
+ */
 
 require( 'header.php' );
 
