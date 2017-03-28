@@ -1,6 +1,10 @@
 <?php
 
-//This is the template for Terms and Conditions page
+/**
+ * Terms and conditions template
+ *
+ * @since 1.0.0
+ */
 
 require( 'header.php' );
 

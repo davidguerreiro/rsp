@@ -4,6 +4,8 @@
 *
 * Template for the main sidebar. This sidebar changes dinamicaly depeinding on if we are in the homepage or the game page
 * In the future they could be more sidebars that's why this approach has been taken
+*
+* @since 1.0.0
 */
 
 ?>

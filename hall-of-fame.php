@@ -9,7 +9,9 @@
 
 require( 'header.php' );
 
-$players = ppt_get_json_content( 'best_players' );
+$players = ppt_get_best_players();
+var_dump( $players );
+die();
 
 ?>
 
@@ -21,6 +23,11 @@ $players = ppt_get_json_content( 'best_players' );
     Is your name here ?
   </p>
   <h3 class="page-subtitle">Players list</h3>
+
+  <?php
+
+     
+  ?>
   <ul class="page-list">
     <li>
       <ul class="page-list-sub">

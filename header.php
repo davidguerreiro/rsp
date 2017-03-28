@@ -1,16 +1,19 @@
 <?php
 
-//php functions
-require_once( './inc/utilities.php' );
+/**
+ * Header Template
+ *
+ * @since 1.0.0
+ */
 
 /**
-*
-* Header template. Initially no HTML will be displayed here
-*
-*/
+ * PHP basic funcionality library
+ */
+require_once( './inc/utilities.php' );
+
 
 const VERSION = '0.1';
-const STATUS = 'Beta';
+const STATUS  = 'Beta';
 
 ?>
 
