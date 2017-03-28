@@ -27,7 +27,7 @@ const STATUS  = 'Beta';
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans|Overpass+Mono|Press+Start+2P">
-    <title>PPT</title>
+    <title>RSP</title>
   </head>
   <body>
     <header class="main-header">

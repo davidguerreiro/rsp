@@ -57,7 +57,7 @@ function sort_options( options ) {
   for( var key in options )
     array_options.push( [ key, options[key] ] );
 
-  //sort array
+  // sort array
   array_options.sort( function( a, b ) {
     return a[1] - b[1];
   });
@@ -68,7 +68,7 @@ function sort_options( options ) {
 
 /**
 *
-* This function creates the rage from 0 to 100 based on the options probabilities
+* Create range from 0 to 100 based on options probabilities
 *
 * @param {object} stats
 * @return {object} ranges
@@ -80,7 +80,7 @@ function get_options_ranges( stats ) {
   let range_2 = {};
   let range_3 = {};
 
-  //calculate and reassing ranges
+  // calculate and reassing ranges
   range_1.text  = stats[2][0];
   range_1.value = parseInt( stats[2][1] );
 
@@ -98,21 +98,21 @@ function get_options_ranges( stats ) {
 
 /**
 *
-* Returns the CPU option choosen
+* Returns option choosen by CPU
 *
 * @param {object} current
 * @return {String} cpu_option
 */
 function get_cpu_option( current ) {
 
-  //TODO: Retrieve CPU player data from JSON object
+  // TODO: Retrieve CPU player data from JSON object
 
   let cpu_option      = '';
   let random_number   = generate_random_number();
   let options         = sort_options( current );
   options             = get_options_ranges( options );
 
-  //check random number value and
+  // check random number value and
   if( random_number <= options[0].value )
     cpu_option = options[0].text;
   else if( random_number <= options[1].value )
@@ -124,7 +124,9 @@ function get_cpu_option( current ) {
 
 }
 
-// GAME UPDATING
+/**
+ * Game Updating
+ */
 
 /**
 *
@@ -226,7 +228,7 @@ function check_round_winner( player_option, cpu_option ) {
     winner = 'tie';
   else {
 
-    //check rock
+    // check rock
     if( player_option === 'rock' ) {
 
         switch( cpu_option) {
@@ -238,7 +240,7 @@ function check_round_winner( player_option, cpu_option ) {
             break;
         }
 
-    }//end rock check
+    }// end rock check
     else if( player_option === 'paper' ) {
 
       switch( cpu_option ) {
@@ -250,7 +252,7 @@ function check_round_winner( player_option, cpu_option ) {
           break;
       }
 
-    } //end paper check
+    } // end paper check
     else {
 
       switch( cpu_option ) {
@@ -262,15 +264,17 @@ function check_round_winner( player_option, cpu_option ) {
           break;
       }
 
-    } //end scrss check
+    } // end scrss check
 
-  }//end tie check
+  }// end tie check
 
   return winner;
 
 }
 
-//GAME PROGRESSION AND STATUS changes
+/**
+ * Game progression and status changes
+ */
 
 /**
 *
@@ -317,7 +321,9 @@ $(document).ready( function() {
 
 
 
-  //EVENTS DISPLAYED WITH USER INTERACTION
+/**
+ * Events displayed trought user interaction
+ */
 
 
 });
