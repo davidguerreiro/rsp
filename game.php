@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <!-- Results boxese -->
+      <!-- Results box -->
       <div class="game-board__result-box result-win" id="player-2-result-box">
         <i class="fa fa-check" aria-hidden="true" id="player-2-result-icon"></i>
       </div>

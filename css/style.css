@@ -292,7 +292,6 @@ a {
 .page-list {
   margin: 15px 0 15px 25px;
   background-color: #4C4C49;
-  border-radius: 20px;
   padding: 10px;
   color: white;
   width: 100%;
@@ -384,13 +383,11 @@ a {
 #new-game-form input[type=text] {
   padding: 12px;
   border: 0px;
-  border-radius: 5px;
 }
 
 #new-game-form input[type=submit] {
   border: 0px;
   padding: 10px;
-  border-radius: 5px;
 }
 
 
@@ -415,7 +412,6 @@ a {
   margin: 10px 0 20px 18px;
   border: 0px;
   padding: 10px;
-  border-radius: 5px;
   background-color: buttonface;
   color: black;
 }
