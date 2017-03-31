@@ -46,7 +46,7 @@ $players = ppt_get_best_players();
   <?php
      endif;
   ?>
-  <a href="main.php" title="back" class="section-back-link"><i class="" aria-hidden="true">Back</a>
+  <a href="main.php" title="back" class="section-back-link"><i class="fa fa-angle-left" aria-hidden="true"></i>Back</a>
 </section>
 
 
