@@ -1,23 +1,33 @@
+
+$primary-color : #343434;
+
 p {
-  color: #343434; }
+	color: $primary-color;
+}
 
 /* Hearths ul */
 .health-container {
   list-style-type: none;
   clear: both;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .health-container li {
   display: inline-block;
-  padding: 5px; }
+  padding: 5px;
+}
 
 .health-container li .fa-heart {
-  color: #FA5858; }
+  color: #FA5858;
+}
+
+
 
 .main__main-menu li a {
-  /*  -moz-transition: color 0.5s ease;
-      -webkit-transition: color 0.5s ease;
-    */ }
+/*  -moz-transition: color 0.5s ease;
+    -webkit-transition: color 0.5s ease;
+  */
+}
 
 /*
 * Colors
@@ -27,33 +37,40 @@ p {
 * Header Background Color: #7377CC
 *
 */
+
+
 /* GENERAL SECTIONS AND BLOCKS */
+
 body {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+}
 
 ul, li {
   margin: 0;
   padding: 0;
-  list-style-type: none; }
+  list-style-type: none;
+}
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6{
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .hidden {
-  display: none; }
+  display: none;
+}
 
 #main {
   overflow: hidden;
-  clear: both; }
-
+  clear: both;
+}
 .game-section, .main-sidebar {
-  float: left;
+  float : left;
   padding-bottom: 100%;
   margin-bottom: -100%;
-  font-family: 'Overpass Mono', monospace; }
-
-/*# sourceMappingURL=style.css.map */
+  font-family: 'Overpass Mono', monospace;
+}
