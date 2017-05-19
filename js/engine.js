@@ -1,3 +1,4 @@
+
 /**
 *
 * Game Engine
@@ -215,8 +216,8 @@ function check_min_max( value ) {
 *
 * This function checks which player wins a round
 *
-* @param {String} player_option
-* @param {String} cpu_option
+* @param  {String} player_option
+* @param  {String} cpu_option
 * @return {String} winner
 */
 function check_round_winner( player_option, cpu_option ) {
@@ -224,7 +225,7 @@ function check_round_winner( player_option, cpu_option ) {
   let winner = '';
 
   //check tie
-  if( player_option === cpu_option)
+  if( player_option === cpu_option )
     winner = 'tie';
   else {
 
@@ -287,7 +288,7 @@ function set_console_text( text_elements ) {
 
   let $console_text_element = $('#console-element');
   let length                = text.length();
-  let text                  = ''
+  let text                  = ''; 
   var i                     = 0;
 
   //each text element is a paragraph
@@ -317,6 +318,9 @@ $(document).ready( function() {
   console.log( test );
   //console.log( test_2 );
   */
+ 
+  var json_file = read_json_file( 'cpu_players' );
+  console.log( json_file );
 
 
 
