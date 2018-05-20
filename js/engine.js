@@ -10,90 +10,100 @@
 
 // GENERATE CPU OPTION RESPONSE
 
-/**
-*
-* This function generates a random number beetwen 0 and 100. This is supposed to be used to calculate which option is being used by the CPU player
-*
-* @return {number} number
-*/
-function generate_random_number() {
+var engine = {
 
-  let number = 0;
-  let min    = 0;
-  let max    = 100;
+  /**
+   * Generates a random number betweebn 0 and 100.
+   * 
+   * @return {number} number
+   */
+  generateRandomNumber : function() {
+    let min = 0;
+    let max = 100;
+    return Math.floor( Math.random() * ( max - min + 1 ) + min );
+  },
 
-  number = Math.floor( Math.random() * ( max - min + 1 ) + min );
+  /**
+   * Reads local JSON file
+   * 
+   * @param {string} file
+   * @param {function} callback
+   * @return {object} data
+   */
+  readJsonFile : function( file, callback ) {
+    let rawFile = new XMLHttpRequest();
 
-  return number;
-
-}
-
-/**
-*
-* This function reads a local JSON file
-*
-* @param {Sting} file_name
-* @return {Object} data
-*/
-function read_json_file( file_name ) {
-
-  let file_name = './../json/' + file_name + '.json';
-  let data      = $.getJSON( file_name );
-
-  return data;
-
-}
-
-/**
-*
-* This function sorts the option percentages from max to min
-*
-* @param {object} options
-* @return {Array} options_array
-*/
-function sort_options( options ) {
-
-  let array_options = [];
-
-  for( var key in options )
-    array_options.push( [ key, options[key] ] );
-
-  // sort array
-  array_options.sort( function( a, b ) {
-    return a[1] - b[1];
+    rawFile.overrideMimeType( 'application/json' );
+    rawFile.open( 'GET', file, true );
+    rawFile.onreadystatechange() = function() {
+      if (rawFile.readyState == 4 && rawFile.status == '200' ) {
+        callback(rawFile.responseText);
+      }
+    }
+    rawFile.send(null);
+  },
+  
+  /*
+  Usage: -- Remove after development.
+  readTextFile("/Users/Documents/workspace/test.json", function(text){
+    var data = JSON.parse(text);
+    console.log(data);
   });
+  Origin : https://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
+  */
 
-  return array_options;
+  /**
+   * Sort percentage options from max to min.
+   * This is used to calculate AI response in every game
+   * loop.
+   * 
+   * @param {object} options
+   * @return {array} Array_options
+   */
+  sortOptions : function( options ) {
+    let arrayOptions = [];
 
-}
+    for( let key in options ) {
+      arrayOptions.push( [key, options[key] ] );
+    }
 
-/**
-*
-* Create range from 0 to 100 based on options probabilities
-*
-* @param {object} stats
-* @return {object} ranges
-*/
-function get_options_ranges( stats ) {
+    // sort array.
+    arrayOptions.sort( function( a, b ){ 
+      return a[1] - b[1];
+    });
 
-  let ranges  = [];
-  let range_1 = {};
-  let range_2 = {};
-  let range_3 = {};
+    return arrayOptions;
+  },
 
-  // calculate and reassing ranges
-  range_1.text  = stats[2][0];
-  range_1.value = parseInt( stats[2][1] );
+  /**
+   * Create ranges from 0 to 100 based which probablilities the
+   * enemy has to choose an option.
+   * This is used to calculate which option the enemy will choose
+   * every game loop.
+   * 
+   * @param {object} stats
+   * @return {object} ranges
+   */
+  getOptionsRanges : function( stats ) {
+    let ranges  = [];
+    let range_1 = {};
+    let range_2 = {};
+    let range_3 = {};
 
-  range_2.text  = stats[1][0];
-  range_2.value = parseInt( stats[2][1] + stats[1][1] );
+    // calculate and reassing ranges
+    range_1.text  = stats[2][0];
+    range_1.value = parseInt( stats[2][1] );
 
-  range_3.text  = stats[0][0];
-  range_3.value = 100;
+    range_2.text  = stats[1][0];
+    range_2.value = parseInt( stats[2][1] + stats[1][1] );
 
-  ranges.push( ...[range_1, range_2, range_3] );
+    range_3.text  = stats[0][0];
+    range_3.value = 100;
 
-  return ranges;
+    ranges.push( ...[range_1, range_2, range_3] );
+
+    return ranges;
+  }
 
 }
 
@@ -284,6 +294,7 @@ function check_round_winner( player_option, cpu_option ) {
 * @param {Array} text
 * @return void
 */
+/*
 function set_console_text( text_elements ) {
 
   let $console_text_element = $('#console-element');
@@ -303,9 +314,7 @@ function set_console_text( text_elements ) {
   $console_text_element.html( text );
 
 }
-
-$(document).ready( function() {
-
+*/
   /*
   let current = {
     rock : 20.33,
@@ -319,8 +328,10 @@ $(document).ready( function() {
   //console.log( test_2 );
   */
  
+  /*
   var json_file = read_json_file( 'cpu_players' );
   console.log( json_file );
+  */
 
 
 
@@ -328,6 +339,3 @@ $(document).ready( function() {
 /**
  * Events displayed trought user interaction
  */
-
-
-});
