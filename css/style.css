@@ -714,4 +714,17 @@ td,
 th {
   padding: 0; }
 
+html {
+  font-size: 16px; }
+
+.game {
+  padding-left: 1.563rem; }
+
+.game-header {
+  background-color: #808080; }
+  .game-header h1 {
+    color: white;
+    margin: 0;
+    padding: 1.5rem 0 1.5rem 1.563rem; }
+
 /*# sourceMappingURL=style.css.map */
