@@ -766,25 +766,27 @@ button {
   .game-layout__options .game-option--disabled {
     opacity: 0.3; }
 
-.game-loop__results {
-  padding-top: 1.8rem; }
-  .game-loop__results li {
-    padding-bottom: 0.7em; }
-.game-loop .globalid-player-name, .game-loop .globalid-enemy-name {
-  font-weight: bold; }
-.game-loop__choice-text {
-  font-size: 1.2rem;
-  border-bottom: 1px dotted #000000; }
-  .game-loop__choice-text--enemy-choice {
-    color: #e82b02;
-    border-bottom-color: #e82b02; }
-.game-loop__notification {
-  font-size: 1.5rem;
-  margin-bottom: 0; }
-  .game-loop__notification--secondary {
-    color: #808080;
-    margin: 0;
-    font-size: 0.9rem; }
+.game-loop {
+  display: none; }
+  .game-loop__results {
+    padding-top: 1.8rem; }
+    .game-loop__results li {
+      padding-bottom: 0.7em; }
+  .game-loop .globalid-player-name, .game-loop .globalid-enemy-name {
+    font-weight: bold; }
+  .game-loop__choice-text {
+    font-size: 1.2rem;
+    border-bottom: 1px dotted #000000; }
+    .game-loop__choice-text--enemy-choice {
+      color: #e82b02;
+      border-bottom-color: #e82b02; }
+  .game-loop__notification {
+    font-size: 1.5rem;
+    margin-bottom: 0; }
+    .game-loop__notification--secondary {
+      color: #808080;
+      margin: 0;
+      font-size: 0.9rem; }
 
 .game-players__element {
   display: inline-block;
@@ -799,7 +801,9 @@ button {
   .game-players__element--enemy {
     background-color: #f7bfb3; }
 
-.game-conclusion__notification {
-  font-size: 2rem; }
+.game-conclusion {
+  display: none; }
+  .game-conclusion__notification {
+    font-size: 2rem; }
 
 /*# sourceMappingURL=style.css.map */
