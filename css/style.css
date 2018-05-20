@@ -799,4 +799,7 @@ button {
   .game-players__element--enemy {
     background-color: #f7bfb3; }
 
+.game-conclusion__notification {
+  font-size: 2rem; }
+
 /*# sourceMappingURL=style.css.map */
