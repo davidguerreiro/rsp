@@ -725,6 +725,13 @@ ul {
 .game {
   padding-left: 1.875rem; }
 
+/** reset for buttons **/
+button {
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0; }
+
 .game-header {
   background-color: #808080; }
   .game-header h1 {
@@ -738,6 +745,26 @@ ul {
   padding: 1.2rem 1.875rem; }
   .game-instructions p {
     line-height: 1.4; }
+
+.game-layout__primary-message {
+  display: inline-block;
+  padding: 2.5rem 0 0.2rem 0;
+  border-bottom: 1px dotted #000000;
+  margin-bottom: 1rem; }
+.game-layout__options li {
+  display: inline-block;
+  margin-right: 1rem; }
+.game-layout__options .game-option {
+  background-color: #9fbfff;
+  color: #504d4d;
+  padding: 1rem 2.5rem;
+  transition: background-color .3s ease;
+  -webkit-transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease; }
+  .game-layout__options .game-option:hover {
+    background-color: #5b92ff; }
+  .game-layout__options .game-option--disabled {
+    opacity: 0.3; }
 
 .game-players__element {
   display: inline-block;
