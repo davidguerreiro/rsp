@@ -35,3 +35,11 @@
 
 // 8. Vendors
 @import "vendors/normalize";
+
+// Game Prototype
+@import "prototype/game";
+@import "prototype/game-header";
+@import "prototype/game-layout";
+@import "prototype/game-loop";
+@import "prototype/game-players";
+@import "prototype/game-conclusion";
