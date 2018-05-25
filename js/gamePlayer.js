@@ -77,6 +77,6 @@ var Player = {
             && this.data.items[ itemID ] > 0 ) {
                 this.data.items[ itemId ]--;
         }
-    }
+    },
     
 };
