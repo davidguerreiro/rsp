@@ -33,6 +33,7 @@ var Item = {
 var Items = {};
 
 // init potion.
+// TODO: Replace this by dynamic data comgin from items JSON file.
 var itemData = {
     id : 0,
     name : 'Potion',
@@ -42,8 +43,6 @@ var itemData = {
 };
 
 Items.potion = Object.create( Item );
-
-// TODO: Replace this by dynamic data comgin from items JSON file.
 Items.potion.init( itemData );
 
 /**
@@ -53,5 +52,30 @@ Items.potion.init( itemData );
  * @return void
  */
 Items.potion.useItem = function( player ) {
-    
+    if ( player.currentLife === player.totalLife ) {
+        return;
+    }
+    player.currentLife++;
+}
+
+// init scanner.
+var itemData = {
+    id : 1,
+    name : 'Scanner',
+    description : 'Reveals how your enemy plays',
+    rate : 20,
+    icon : 'fa fa-tablet',
+};
+
+Items.scanner = Object.create( Item );
+Items.scanner.init( itemData );
+
+/**
+ * Scanner usage method.
+ * 
+ * @param {object} Enemy Enemy object
+ * @return {object} stats
+ */
+Items.scanner.useItem = function( Enemy ) {
+    return Enemy.data.stats;
 }

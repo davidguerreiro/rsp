@@ -15,7 +15,8 @@ var Player = {
     data : {
         id : 0,
         name : 'default',
-        life : 3,
+        currentLife : 3,
+        totalLife : 3,
         type : 'standard',
         stats : {
             rock : 33.33,
@@ -44,10 +45,10 @@ var Player = {
      * @return void
      */
     removeLife : function() {
-        this.data.life--;
+        this.data.currentlife--;
 
-        if ( this.data.life < 0 ) {
-            this.data.life = 0;
+        if ( this.data.currentLife < 0 ) {
+            this.data.currentLife = 0;
         }
     },
 
