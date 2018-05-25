@@ -92,10 +92,10 @@ var engine = {
 
     // calculate and reassing ranges
     range_1.text  = stats[2][0];
-    range_1.value = parseInt( stats[2][1] );
+    range_1.value = Number( stats[2][1] );
 
     range_2.text  = stats[1][0];
-    range_2.value = parseInt( stats[2][1] + stats[1][1] );
+    range_2.value = Number( stats[2][1] + stats[1][1] );
 
     range_3.text  = stats[0][0];
     range_3.value = 100;
@@ -103,41 +103,41 @@ var engine = {
     ranges.push( ...[range_1, range_2, range_3] );
 
     return ranges;
-  }
-
-}
+  },
 
 /**
-*
-* Returns option choosen by CPU
-*
-* @param {object} current
-* @return {String} cpu_option
-*/
-function get_cpu_option( current ) {
+ * Returns option choosen by CPU
+ * 
+ * @param {object} current
+ * @return {string} cpu_option
+ */
+ getCpuOption: function( current ) {
+  // TODO: Retrieve CPT player data from JSON object
 
-  // TODO: Retrieve CPU player data from JSON object
+  let cpuOption     = '';
+  let randonNumber  = this.generateRandomNumber();
+  let options       = this.sortOptions( current );
+  options           = this.getOptionsRanges( options );
 
-  let cpu_option      = '';
-  let random_number   = generate_random_number();
-  let options         = sort_options( current );
-  options             = get_options_ranges( options );
-
-  // check random number value and
-  if( random_number <= options[0].value )
-    cpu_option = options[0].text;
-  else if( random_number <= options[1].value )
-    cpu_option = options[1].text;
+  if( randonNumber <= options[0].value )
+    cpuOption = options[0].text;
+  else if( randonNumber <= options[1].value )
+    cpuOption = options[1].text;
   else
-    cpu_option = options[2].text;
+    cpuOption = options[2].text;
 
-  return cpu_option;
+  return cpuOption;
+ }
 
 }
+
 
 /**
  * Game Updating
  */
+ var gameProgress = Object.create( engine );
+
+ 
 
 /**
 *
