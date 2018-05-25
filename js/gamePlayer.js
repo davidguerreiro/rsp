@@ -11,22 +11,6 @@
 
 var Player = {
 
-    // player base data.
-    data : {
-        id : 0,
-        name : 'default',
-        currentLife : 3,
-        totalLife : 3,
-        type : 'standard',
-        stats : {
-            rock : 33.33,
-            paper : 33.33,
-            scrss : 33.33,
-        },
-        tips : [],
-        items : [],
-    },
-
     /**
      * Init a player object.
      * 
@@ -34,9 +18,18 @@ var Player = {
      * @return void
      */
     init : function( playerData ) {
-        if ( typeof playerData == 'object' && playerData.length > 0 ) {
-            this.data = playerData;
-        }
+        this.id             = playerData.id || 0;
+        this.name           = playerData.name || 'default',
+        this.currentLife    = playerData.currentLife || 3;
+        this.maxLife        = playerData.maxLife || 3;
+        this.type           = playerData.type || 'standard';
+        this.stats          = playerData.stats || {
+                rock : 33.33,
+                scrss : 33.33,
+                paper : 33.33,
+            };
+        this.tips   = playerData.tips || [];
+        this.items  = playerData.items || []
     },
 
     /**
@@ -45,10 +38,10 @@ var Player = {
      * @return void
      */
     removeLife : function() {
-        this.data.currentlife--;
+        this.currentlife--;
 
-        if ( this.data.currentLife < 0 ) {
-            this.data.currentLife = 0;
+        if ( this.currentLife < 0 ) {
+            this.currentLife = 0;
         }
     },
 
@@ -59,10 +52,10 @@ var Player = {
      * @return void
      */
     addItem : function( itemId ) {
-        if ( this.data.items.hasOwnProperty( itemId ) ) {
-            this.data.items[ itemId ]++;
+        if ( this.items.hasOwnProperty( itemId ) ) {
+            this.items[ itemId ]++;
         } else {
-            this.data.items[ itemId ] = 1;
+            this.items[ itemId ] = 1;
         }
     },
 
@@ -73,10 +66,10 @@ var Player = {
      * @return void
      */
     removeItem : function( itemId ) {
-        if ( this.data.items.hasOwnProperty( itemID ) 
-            && typeof this.data.items[ itemId ] !== 'undefined' 
-            && this.data.items[ itemID ] > 0 ) {
-                this.data.items[ itemId ]--;
+        if ( this.items.hasOwnProperty( itemID ) 
+            && typeof this.items[ itemId ] !== 'undefined' 
+            && this.items[ itemID ] > 0 ) {
+                this.items[ itemId ]--;
         }
     },
     
