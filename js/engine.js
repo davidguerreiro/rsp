@@ -127,161 +127,112 @@ var engine = {
     cpuOption = options[2].text;
 
   return cpuOption;
- }
+ },
 
-}
+ /**
+  * Modify the player options percentage.
+  * All unmodify options will be automatically recalculated to balance
+  * the result.
+  * TODO: Add percentages as a dynamic parameter.
+  * 
+  * @param {string} item Option to increment
+  * @param {number} amount Option will be increased this amount 
+  * @return {object} response
+  */
+  addPercentage: function( item, quantity ) {
+    let response = {
+      status : 'error',
+      message : '',
+    };
 
+    // item should be a valid choice
+    if( item !== 'rock' && item !== 'paper' && item !== 'scrss' ) {
+      response.message = 'Invalid item / choice parameter';
+      return response;
+    }
 
-/**
- * Game Updating
- */
- var gameProgress = Object.create( engine );
+    // amount should be a valid value
+    if ( quantity < 0 || quantity > 99.99 ) {
+      response.message = 'Invalid quantity. This should be higer than 0 and less than 99.99';
+      return response;
+    }
 
- 
+    // TODO: Add this as a dinamy parameter
+    let current = {
+      rock : 33.33,
+      paper : 33.33,
+      scrss : 33.33,
+    };
 
-/**
-*
-* Modify the player percentage of options. All the unmodified options will be automatically recalculated to balance the result
-*
-* @param  {String} item - The option we want to increase.
-* @param  {number} qt - The amount we want to increase our choosen percentage option
-* @return {object} response - Object which contains all the status data
-*/
-function add_percentage( item,  qt ) {
+    let toDivide = parseFloat( quantity / 2 );
 
-  let response = {
-    status : 'error',
-    message : ''
-  };
+    // recalculate rest of the options to balance the percentages.
+    for ( let key in current ) {
+      
+      if ( key == item ) {
+        current[ key ] = parseFloat( current[ key ] + quantity ); 
+      } else {
+        current[ key ] = current[ key ] - toDivide;
+      }
 
-  // item should be a valid choice
-  if( item !== 'rock' && item !== 'paper' && item !== 'scrss' ) {
-    response.message = 'Invalid item / choice parameter';
-    return response;
-  }
+      current[key] = this.checkMinMax( current[key] );
+    }
 
-  // quantity should be a valid value
-  if( qt < 0 || qt > 99.99 ) {
-    response.message = 'Invalid quantity. This should be higer than 0 and less than 99.99';
-    return response;
-  }
-
-  // init state of each choice
-  let current = {
-    rock : 33.33,
-    paper : 33.33,
-    scrss : 33.33
-  };
-
-  let to_divide = parseFloat( qt / 2 );
-
-  // recalculating rest of the options to balance the percentages
-  for( var key in current ) {
-
-    if( key == item )
-      current[key] = parseFloat( current[key] + qt );
-    else
-      current[key] = parseFloat( current[key] - to_divide );
-
-    //check min / max
-    current[key] = check_min_max( current[key] );
-
-  }
-
-  response.current     = current;
-  response.percentages = parseFloat( current.rock + current.paper + current.scrss );
-
-  if( response.percentages < 100 )
+    response.current = current;
     response.status = 'success';
+    
+    return response;
+  },
 
-  return response;
+  /**
+   * Checks if any percentage overpass the min/max parameters and 
+   * make ajustments if required.
+   * 
+   * @param {number} value
+   * @return {number} value
+   */
+  checkMinMax : function( value ) {
+    let min = 0;
+    let max = 99.99;
 
-}
+    if ( value < min ) {
+      value = min;
+    }
 
-/**
-*
-* This function checks if any percentage overpass the min/max parameters and ajust them
-*
-* @param {number} value
-* @return {number} value
-*/
-function check_min_max( value ) {
+    if ( value > max ) {
+      value = max;
+    }
 
-  let min = 0;
-  let max = 99.99;
+    return value;
+  },
 
-  if( value < min )
-    value = min;
+  /**
+   * Check which player wins a round
+   * 
+   * @param {string} player_option
+   * @param {string} cpu_option
+   * @return {boolean}
+   */
+  hasPlayerWonRound: function( playerOption, cpuOption ) {  
+    let result = [
+      'rock' = [
+        'paper' = false,
+        'scrss' = true,
+      ],
+      'scrss' = [
+        'rock'  = false,
+        'paper' = true,
+      ],
+      'paper' = [
+        'scrss' = false,
+        'rock'  = true,
+      ],
+    ];
+    
+    return result[ playerOption ][ cpuOption ];
+  }
 
-  if( value > max )
-    value = max;
-
-  return value;
-
-}
-
-// GAME LOGIC
-
-/**
-*
-* This function checks which player wins a round
-*
-* @param  {String} player_option
-* @param  {String} cpu_option
-* @return {String} winner
-*/
-function check_round_winner( player_option, cpu_option ) {
-
-  let winner = '';
-
-  //check tie
-  if( player_option === cpu_option )
-    winner = 'tie';
-  else {
-
-    // check rock
-    if( player_option === 'rock' ) {
-
-        switch( cpu_option) {
-          case 'paper':
-            winner = 'cpu';
-            break;
-          case 'scrss':
-            winner = 'player';
-            break;
-        }
-
-    }// end rock check
-    else if( player_option === 'paper' ) {
-
-      switch( cpu_option ) {
-        case 'rock':
-          winner = 'player';
-          break;
-        case 'scrss':
-          winner = 'cpu';
-          break;
-      }
-
-    } // end paper check
-    else {
-
-      switch( cpu_option ) {
-        case 'rock':
-          winner = 'cpu';
-          break;
-        case 'paper':
-          winner = 'player';
-          break;
-      }
-
-    } // end scrss check
-
-  }// end tie check
-
-  return winner;
-
-}
+};
 
 /**
  * Game progression and status changes
@@ -339,3 +290,8 @@ function set_console_text( text_elements ) {
 /**
  * Events displayed trought user interaction
  */
+
+/**
+ * Game Updating
+ */
+var gameProgress = Object.create( engine );
