@@ -3,14 +3,13 @@
 *
 * Game Engine
 *
-* Build with vanilla js.
+* Base game logic and funcionality should be placed here.
+* This is the base object and every component of the game
+* should be prototype linked to this object.
 *
 */
 
-
-// GENERATE CPU OPTION RESPONSE
-
-var engine = {
+var Engine = {
 
   /**
    * Generates a random number betweebn 0 and 100.
@@ -216,19 +215,19 @@ var engine = {
   hasPlayerWonRound: function( playerOption, cpuOption ) {  
     let result = [
       'rock' = [
-        'paper' = false,
-        'scrss' = true,
-        'rock'  = null,
+        'paper' = 1,
+        'scrss' = 2,
+        'rock'  = false,
       ],
       'scrss' = [
-        'rock'  = false,
-        'paper' = true,
-        'scrss' = null,
+        'rock'  = 1,
+        'paper' = 2,
+        'scrss' = false,
       ],
       'paper' = [
-        'scrss' = false,
-        'rock'  = true,
-        'paper' = null,
+        'scrss' = 1,
+        'rock'  = 2,
+        'paper' = false,
       ],
     ];
     
@@ -236,65 +235,3 @@ var engine = {
   }
 
 };
-
-/**
- * Game progression and status changes
- */
-
-/**
-*
-* This function modifies the console text
-*
-* @param {Array} text
-* @return void
-*/
-/*
-function set_console_text( text_elements ) {
-
-  let $console_text_element = $('#console-element');
-  let length                = text.length();
-  let text                  = ''; 
-  var i                     = 0;
-
-  //each text element is a paragraph
-  for( i = 0; i < length; i++ ) {
-
-    text += "<p class='console_p'>"
-            + text_elements[i]
-            + "</p>";
-
-  }
-
-  $console_text_element.html( text );
-
-}
-*/
-  /*
-  let current = {
-    rock : 20.33,
-    paper : 38.33,
-    scrss : 33.33
-  };
-
-  let test = sort_options( current );
-  //let test_2 = get_cpu_option();
-  console.log( test );
-  //console.log( test_2 );
-  */
- 
-  /*
-  var json_file = read_json_file( 'cpu_players' );
-  console.log( json_file );
-  */
-
-
-
-
-/**
- * Events displayed trought user interaction
- */
-
-/**
- * Game Updating
- */
-var gameProgress = Object.create( engine );
