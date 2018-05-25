@@ -218,14 +218,17 @@ var engine = {
       'rock' = [
         'paper' = false,
         'scrss' = true,
+        'rock'  = null,
       ],
       'scrss' = [
         'rock'  = false,
         'paper' = true,
+        'scrss' = null,
       ],
       'paper' = [
         'scrss' = false,
         'rock'  = true,
+        'paper' = null,
       ],
     ];
     
