@@ -10,24 +10,17 @@
 
 var Item = {
 
-    data : {
-        id : 0,
-        name : 'default',
-        description : '',
-        rate : 50,
-        icon : '',
-    },
-
     /**
      * Item init method
      * 
      * @param {object} data Data
      * @return void
      */
-    init : function( data ) {
-        if ( typeof data == 'object' && data.length > 0 ) {
-            this.data = data;
-        }
+    init : function( itemData ) {
+        this.id = itemData.id || 0;
+        this.name = itemData.name || 'default';
+        this.rate = itemData.rate || 50;
+        this.icon =  itemData.icon || '';
     }
 };
 var Items = {};

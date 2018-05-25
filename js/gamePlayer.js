@@ -29,7 +29,7 @@ var Player = {
                 paper : 33.33,
             };
         this.tips   = playerData.tips || [];
-        this.items  = playerData.items || []
+        this.items  = playerData.items || [];
     },
 
     /**
