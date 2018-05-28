@@ -10,121 +10,67 @@
 */
 
 var Player = {
-
-    /**
-     * Init a player object.
-     * 
-     * @param {object} playerData Player data
-     * @return void
-     */
-    init : function( playerData ) {
-        this.id             = playerData.id || 0;
-        this.name           = playerData.name || 'default',
-        this.currentLife    = playerData.currentLife || 3;
-        this.maxLife        = playerData.maxLife || 3;
-        this.type           = playerData.type || 'standard';
-        this.stats          = playerData.stats || {
-                rock : 33.33,
-                scrss : 33.33,
-                paper : 33.33,
-            };
-        this.tips   = playerData.tips || [];
-        this.items  = playerData.items || [];
-    },
-
-    /**
-     * Remove a life
-     * 
-     * @return void
-     */
-    removeLife : function() {
-        this.currentlife--;
-
-        if ( this.currentLife < 0 ) {
-            this.currentLife = 0;
-        }
-    },
     
-};
-
-/**
- * Define exclusive Human player methods.
- */
-var Hero = Object.create( Player );
-
-/**
- * Add item
- * 
- * @param {number} item item to add
- * @return void
-*/
-Hero.addItem = function( itemId ) {
-    if ( this.items.hasOwnProperty( itemId ) ) {
-        this.items[ itemId ]++;
-    } else {
-        this.items[ itemId ] = 1;
-    }
-};
-
-/**
- * Remove item
- * 
- * @param {number} itemId
- * @return void
- */
-Hero.removeItem = function( itemId ) {
-    if ( this.items.hasOwnProperty( itemID ) 
-    && typeof this.items[ itemId ] !== 'undefined' 
-    && this.items[ itemID ] > 0 ) {
-        this.items[ itemId ]--;
-    }
-};
-
-/**
- * Update player action percentages
- * 
- * @param {string} item Item to be updated - Can be rock, paper, scrss
- * @param {number} quantity Amount to update.
- * @return void
- */
-Hero.updateActions = function( item, quantity ) {
-    let toDivide = parseFloat( quantity / 2 );
-
-    // recalculate rest of the options to balance the percentages.
-    for ( let key in this.stats ) {
+        /**
+         * Init a player object.
+         * 
+         * @param {object} playerData Player data
+         * @return void
+         */
+        init : function( playerData ) {
+            this.id             = playerData.id || 0;
+            this.name           = playerData.name || 'default',
+            this.currentLife    = playerData.currentLife || 3;
+            this.maxLife        = playerData.maxLife || 3;
+            this.type           = playerData.type || 'standard';
+            this.stats          = playerData.stats || {
+                    rock : 33.33,
+                    scrss : 33.33,
+                    paper : 33.33,
+                };
+            this.tips   = playerData.tips || [];
+            this.items  = playerData.items || [];
+        },
+    
+        /**
+         * Remove a life
+         * 
+         * @return void
+         */
+        removeLife : function() {
+            this.currentlife--;
+    
+            if ( this.currentLife < 0 ) {
+                this.currentLife = 0;
+            }
+        },
+    
+        /**
+         * Add item
+         * 
+         * @param {number} item item to add
+         * @return void
+         */
+        addItem : function( itemId ) {
+            if ( this.items.hasOwnProperty( itemId ) ) {
+                this.items[ itemId ]++;
+            } else {
+                this.items[ itemId ] = 1;
+            }
+        },
+    
+        /**
+         * Remove item
+         * 
+         * @param {number} itemId
+         * @return void
+         */
+        removeItem : function( itemId ) {
+            if ( this.items.hasOwnProperty( itemID ) 
+                && typeof this.items[ itemId ] !== 'undefined' 
+                && this.items[ itemID ] > 0 ) {
+                    this.items[ itemId ]--;
+            }
+        },
         
-        if ( key == item ) {
-          this.stats[ key ] = parseFloat( this.stats[ key ] + quantity ); 
-        } else {
-          this.stats[ key ] = this.stats[ key ] - toDivide;
-        }
-  
-        this.stats[key] = Engine.checkMinMax( this.stats[key] );
-    }
-};
-
-/**
- * Define Ememy exclusive actions
- */
-var Enemy = Object.create( Player );
-
-/**
- * Generate Enemy action
- * 
- * @return {string} cpuOption
- */
-Enemy.getOption = function() {
-    let cpuOption     = '';
-    let randonNumber  = Engine.generateRandomNumber();
-    let options       = Engine.sortOptions( this.stats );
-    options           = Engine.getOptionsRanges( options );
-  
-    if( randonNumber <= options[0].value )
-      cpuOption = options[0].text;
-    else if( randonNumber <= options[1].value )
-      cpuOption = options[1].text;
-    else
-      cpuOption = options[2].text;
-  
-    return cpuOption;
 };
