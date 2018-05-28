@@ -1,0 +1,45 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/placeholders";
+@import "abstracts/variables";
+
+// 2. Vendors
+@import "vendors/normalize";
+
+// 3. Base stuff
+@import "base/reset";
+@import "base/typography";
+
+// 4. Layout-related sections
+@import "layout/footer";
+@import "layout/forms";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/sidebar";
+
+// 5. Components
+@import "components/buttons";
+@import "components/carousel";
+@import "components/cover";
+@import "components/dropdown";
+
+// 6. Page specific styles
+@import "pages/home";
+
+// 7. Themes
+@import "themes/theme";
+
+// 8. Vendors
+@import "vendors/normalize";
+
+// Game Prototype
+@import "prototype/game";
+@import "prototype/game-header";
+@import "prototype/game-layout";
+@import "prototype/game-loop";
+@import "prototype/game-players";
+@import "prototype/game-conclusion";

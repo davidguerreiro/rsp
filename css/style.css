@@ -751,9 +751,11 @@ button {
   padding: 2.5rem 0 0.2rem 0;
   border-bottom: 1px dotted #000000;
   margin-bottom: 1rem; }
+
 .game-layout__options li {
   display: inline-block;
   margin-right: 1rem; }
+
 .game-layout__options .game-option {
   background-color: #9fbfff;
   color: #504d4d;
@@ -805,5 +807,3 @@ button {
   display: none; }
   .game-conclusion__notification {
     font-size: 2rem; }
-
-/*# sourceMappingURL=style.css.map */

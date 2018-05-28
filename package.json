@@ -1,0 +1,23 @@
+{
+  "name": "rsp",
+  "version": "1.0.0",
+  "description": "Just a very basic JS game where you will have to try to beat three players in a row playing rock-scissors-paper.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidguerreiro/rsp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidguerreiro/rsp/issues"
+  },
+  "homepage": "https://github.com/davidguerreiro/rsp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}
