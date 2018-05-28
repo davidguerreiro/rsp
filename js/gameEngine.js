@@ -128,61 +128,6 @@ var Engine = {
   return cpuOption;
  },
 
- /**
-  * Modify the player options percentage.
-  * All unmodify options will be automatically recalculated to balance
-  * the result.
-  * TODO: Add percentages as a dynamic parameter.
-  * 
-  * @param {string} item Option to increment
-  * @param {number} amount Option will be increased this amount 
-  * @return {object} response
-  */
-  addPercentage: function( item, quantity ) {
-    let response = {
-      status : 'error',
-      message : '',
-    };
-
-    // item should be a valid choice
-    if( item !== 'rock' && item !== 'paper' && item !== 'scrss' ) {
-      response.message = 'Invalid item / choice parameter';
-      return response;
-    }
-
-    // amount should be a valid value
-    if ( quantity < 0 || quantity > 99.99 ) {
-      response.message = 'Invalid quantity. This should be higer than 0 and less than 99.99';
-      return response;
-    }
-
-    // TODO: Add this as a dinamy parameter
-    let current = {
-      rock : 33.33,
-      paper : 33.33,
-      scrss : 33.33,
-    };
-
-    let toDivide = parseFloat( quantity / 2 );
-
-    // recalculate rest of the options to balance the percentages.
-    for ( let key in current ) {
-      
-      if ( key == item ) {
-        current[ key ] = parseFloat( current[ key ] + quantity ); 
-      } else {
-        current[ key ] = current[ key ] - toDivide;
-      }
-
-      current[key] = this.checkMinMax( current[key] );
-    }
-
-    response.current = current;
-    response.status = 'success';
-    
-    return response;
-  },
-
   /**
    * Checks if any percentage overpass the min/max parameters and 
    * make ajustments if required.
