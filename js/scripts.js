@@ -1,3 +1,35 @@
+/**
+*
+* Game.
+*
+* Loop events belong to game progress. Game progress communicates
+* with game engine object, which is prototype linked to this.
+*
+*/
+
+var Game = {
+
+    /**
+     * Init game
+     * 
+     * @return void
+     */
+    init: function() {
+
+    },
+
+    /**
+     * Init players
+     * 
+     * Create both human player and cpu player
+     * and update screen data with init data.
+     * 
+     * @return void
+     */
+    initPlayers: function() {
+
+    },
+};
 
 /**
 *
@@ -267,6 +299,17 @@ Items.scanner.useItem = function( Enemy ) {
 *
 */
 
+/**
+*
+* Game Players
+*
+* Defines the player objects in the game.
+* Usually there should be two players for every game. The
+* human main player and the cpu player, which is the enemy.
+* Technically they are exactly the same.
+*
+*/
+
 var Player = {
 
     /**
@@ -386,13 +429,3 @@ Enemy.getOption = function() {
   
     return cpuOption;
 };
-/**
-*
-* Game Progress.
-*
-* Loop events belong to game progress. Game progress communicates
-* with game engine object, which is prototype linked to this.
-*
-*/
-
-var gameProgress = Object.create( Engine );
