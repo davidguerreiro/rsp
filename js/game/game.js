@@ -29,12 +29,13 @@ var Game = {
      */
     initPlayers: function() {
 
-        // create human player.
-        const data = {
+        // create human player and add it to the global scope.
+        var data = {
             id : 0,
             name : 'David Guerreiro',
         };
-        var player1 = Player( data );
+        window.player1 = Object.create( Hero ).init( data );
+         
         console.log( player1 );
 
         // create cpu player.
@@ -44,6 +45,6 @@ var Game = {
 document.onreadystatechange = function () {
     if ( document.readyState == "interactive" ) {    
         // init game.
-        game.init();
+        Game.init();
     }
 }

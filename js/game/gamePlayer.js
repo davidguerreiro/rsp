@@ -28,7 +28,7 @@ var Player = {
      * @param {object} playerData Player data
      * @return void
      */
-    init : function( playerData ) {
+    player : function( playerData ) {
         this.id             = playerData.id || 0;
         this.name           = playerData.name || 'default',
         this.currentLife    = playerData.currentLife || 3;
@@ -64,6 +64,17 @@ var Player = {
 var Hero = Object.create( Player );
 
 /**
+ * Hero init method
+ * 
+ * @param {obejct} playerData Player Data
+ * @return {object}
+ */
+Hero.init = function( playerData ) {
+    this.player( playerData );
+    return this;
+}
+
+/**
  * Add item
  * 
  * @param {number} item item to add
@@ -84,9 +95,9 @@ Hero.addItem = function( itemId ) {
  * @return void
  */
 Hero.removeItem = function( itemId ) {
-    if ( this.items.hasOwnProperty( itemID ) 
+    if ( this.items.hasOwnProperty( itemId ) 
     && typeof this.items[ itemId ] !== 'undefined' 
-    && this.items[ itemID ] > 0 ) {
+    && this.items[ itemId ] > 0 ) {
         this.items[ itemId ]--;
     }
 };
@@ -118,6 +129,16 @@ Hero.updateActions = function( item, quantity ) {
  * Define Ememy exclusive actions
  */
 var Enemy = Object.create( Player );
+
+/**
+ * Enemy init method
+ * 
+ * @param {obejct} playerData Player Data
+ * @return {object}
+ */
+Enemy.init = function( playerData ) {
+    return this.player( playerData );
+}
 
 /**
  * Generate Enemy action

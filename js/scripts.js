@@ -29,13 +29,15 @@ var Game = {
      */
     initPlayers: function() {
 
-        // create human player.
-        const data = {
+        // create human player and add it to the global scope.
+        var data = {
             id : 0,
             name : 'David Guerreiro',
         };
-        var player1 = Player( data );
+        window.player1 = Object.create( Hero ).init( data );
+         
         console.log( player1 );
+        console.log( 'we have come all this way here' );
 
         // create cpu player.
     },
@@ -44,7 +46,7 @@ var Game = {
 document.onreadystatechange = function () {
     if ( document.readyState == "interactive" ) {    
         // init game.
-        game.init();
+        Game.init();
     }
 }
 
@@ -207,23 +209,23 @@ var Engine = {
    * @return {boolean}
    */
   hasPlayerWonRound: function( playerOption, cpuOption ) {  
-    let result = [
-      'rock' = [
-        'paper' = 1,
-        'scrss' = 2,
-        'rock'  = false,
-      ],
-      'scrss' = [
-        'rock'  = 1,
-        'paper' = 2,
-        'scrss' = false,
-      ],
-      'paper' = [
-        'scrss' = 1,
-        'rock'  = 2,
-        'paper' = false,
-      ],
-    ];
+    let result = {
+      'rock' : {
+        'paper' : 1,
+        'scrss' : 2,
+        'rock'  : false,
+      },
+      'scrss' : {
+        'rock'  : 1,
+        'paper' : 2,
+        'scrss' : false,
+      },
+      'paper' : {
+        'scrss' : 1,
+        'rock'  : 2,
+        'paper' : false,
+      },
+    };
     
     return result[ playerOption ][ cpuOption ];
   }
@@ -335,7 +337,7 @@ var Player = {
      * @param {object} playerData Player data
      * @return void
      */
-    init : function( playerData ) {
+    player : function( playerData ) {
         this.id             = playerData.id || 0;
         this.name           = playerData.name || 'default',
         this.currentLife    = playerData.currentLife || 3;
@@ -371,6 +373,17 @@ var Player = {
 var Hero = Object.create( Player );
 
 /**
+ * Hero init method
+ * 
+ * @param {obejct} playerData Player Data
+ * @return {object}
+ */
+Hero.init = function( playerData ) {
+    this.player( playerData );
+    return this;
+}
+
+/**
  * Add item
  * 
  * @param {number} item item to add
@@ -391,9 +404,9 @@ Hero.addItem = function( itemId ) {
  * @return void
  */
 Hero.removeItem = function( itemId ) {
-    if ( this.items.hasOwnProperty( itemID ) 
+    if ( this.items.hasOwnProperty( itemId ) 
     && typeof this.items[ itemId ] !== 'undefined' 
-    && this.items[ itemID ] > 0 ) {
+    && this.items[ itemId ] > 0 ) {
         this.items[ itemId ]--;
     }
 };
@@ -425,6 +438,16 @@ Hero.updateActions = function( item, quantity ) {
  * Define Ememy exclusive actions
  */
 var Enemy = Object.create( Player );
+
+/**
+ * Enemy init method
+ * 
+ * @param {obejct} playerData Player Data
+ * @return {object}
+ */
+Enemy.init = function( playerData ) {
+    return this.player( playerData );
+}
 
 /**
  * Generate Enemy action

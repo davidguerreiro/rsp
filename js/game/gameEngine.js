@@ -158,23 +158,23 @@ var Engine = {
    * @return {boolean}
    */
   hasPlayerWonRound: function( playerOption, cpuOption ) {  
-    let result = [
-      'rock' = [
-        'paper' = 1,
-        'scrss' = 2,
-        'rock'  = false,
-      ],
-      'scrss' = [
-        'rock'  = 1,
-        'paper' = 2,
-        'scrss' = false,
-      ],
-      'paper' = [
-        'scrss' = 1,
-        'rock'  = 2,
-        'paper' = false,
-      ],
-    ];
+    let result = {
+      'rock' : {
+        'paper' : 1,
+        'scrss' : 2,
+        'rock'  : false,
+      },
+      'scrss' : {
+        'rock'  : 1,
+        'paper' : 2,
+        'scrss' : false,
+      },
+      'paper' : {
+        'scrss' : 1,
+        'rock'  : 2,
+        'paper' : false,
+      },
+    };
     
     return result[ playerOption ][ cpuOption ];
   }
