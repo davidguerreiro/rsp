@@ -137,7 +137,8 @@ var Enemy = Object.create( Player );
  * @return {object}
  */
 Enemy.init = function( playerData ) {
-    return this.player( playerData );
+    this.player( playerData );
+    return this;
 }
 
 /**

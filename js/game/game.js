@@ -19,6 +19,11 @@ var Game = {
     init: function() {
         // init players.
         this.initPlayers();
+        console.log( player1 );
+        console.log( cpuPlayer );
+
+        // init game interface.
+        this.initInterface();
     },
 
     /**
@@ -37,12 +42,27 @@ var Game = {
             name : 'David Guerreiro',
         };
         window.player1 = Object.create( Hero ).init( data );
-         
-        console.log( player1 );
-        console.log( enemyData );
 
         // create cpu player.
+        window.cpuPlayer = Object.create( Enemy ).init( enemyData.enemies[0] );
     },
+
+    /**
+     * Init interface.
+     * 
+     * Load players data on the game interface
+     * 
+     * @return void
+     */
+    initInterface : function() {
+        // init player 1 data.
+        document.getElementById('player-name').innerHTML = player1.name;
+        document.getElementById('player-life').innerHTML = player1.maxLife;
+
+        // init cpu player data.
+        document.getElementById('enemy-name').innerHTML = cpuPlayer.name;
+        document.getElementById('enemy-life').innerHTML = cpuPlayer.maxLife;
+    }
 };
 
 document.onreadystatechange = function () {
@@ -52,7 +72,7 @@ document.onreadystatechange = function () {
         var readerCallback = function( text ) {
             let data = JSON.parse( text );
             window.enemyData = data;
-
+            
             // init game.
             Game.init();
         };
