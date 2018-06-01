@@ -23,7 +23,8 @@ var Game = {
         console.log( cpuPlayer );
 
         // init game interface.
-        this.initInterface();
+        Engine.refreshInterface();
+        Game.initInterface();
     },
 
     /**
@@ -51,18 +52,17 @@ var Game = {
     /**
      * Init interface.
      * 
-     * Load players data on the game interface
+     * Add events to game interface so the game
+     * becames playable
      * 
      * @return void
      */
     initInterface : function() {
-        // init player 1 data.
-        document.getElementById('player-name').innerHTML = player1.name;
-        document.getElementById('player-life').innerHTML = player1.maxLife;
+        var options = document.getElementsByClassName('game-option');
 
-        // init cpu player data.
-        document.getElementById('enemy-name').innerHTML = cpuPlayer.name;
-        document.getElementById('enemy-life').innerHTML = cpuPlayer.maxLife;
+        for (let i = 0; i < options.length; i++) { 
+            options[i].addEventListener('click', Engine.play);
+        }
     }
 };
 

@@ -177,6 +177,34 @@ var Engine = {
     };
     
     return result[ playerOption ][ cpuOption ];
-  }
+  },
 
+  /**
+   * Refresh interface with players data.
+   * This method is used when the game is init and
+   * once after every game loop.
+   * 
+   * @return void
+   */
+  refreshInterface : function() {
+    // init player 1 data.
+    document.getElementById('player-name').innerHTML = player1.name;
+    document.getElementById('player-life').innerHTML = player1.maxLife;
+
+    // init cpu player data.
+    document.getElementById('enemy-name').innerHTML = cpuPlayer.name;
+    document.getElementById('enemy-life').innerHTML = cpuPlayer.maxLife;
+  },
+
+  /**
+   * Inits game loop.
+   * 
+   * This method is tiggered every time an users
+   * selects an option to play.
+   * 
+   * @return void
+   */
+  play : function() {
+    console.log(this.id);
+  },
 };
