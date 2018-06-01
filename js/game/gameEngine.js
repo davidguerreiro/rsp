@@ -187,12 +187,6 @@ var Engine = {
     let looserText = document.getElementById('looser-text');
     gameLoopElement = gameLoopElement[0];
 
-    // display game progress interface if not displayed.
-    if ( gameLoopElement.style.display !== 'block' ) {
-      gameLoopElement.style.display = 'block';
-    }
-
-
     // update action screen.
     document.getElementById('player-selected-action').innerHTML = this.getActionName( playerAction );
     document.getElementById('enemy-selected-action').innerHTML = this.getActionName( enemyAction );
@@ -205,6 +199,11 @@ var Engine = {
     } else {
       winnerText.innerHTML = winner.name + ' has won this match';
       looserText.innerHTML = looser.name + ' has lost a life';
+    }
+
+    // display game progress interface if not displayed.
+    if ( gameLoopElement.style.display !== 'block' ) {
+      gameLoopElement.style.display = 'block';
     }
 
     // update players data.
@@ -256,5 +255,33 @@ var Engine = {
 
     // update screen data.
     Engine.refreshInterface( winner, looser, playerChoice, cpuChoice );
+
+    // check if game over.]
+    if ( player1.currentLife == 0 || cpuPlayer.currentLife == 0 ) {
+      Engine.gameOver();
+    }
+  },
+
+  /**
+   * Game over.
+   * 
+   * Game over is checked at the end of every
+   * game loop and tiggered if any player or enemy
+   * has no more life.
+   * 
+   * @return void
+   */
+  gameOver : function() {
+    // hide action screen.
+    let gameLayout = document.getElementsByClassName('game-layout');
+    let gameLoopElement = document.getElementsByClassName('game-loop');
+    let gameConclusionElement = document.getElementsByClassName('game-conclusion');
+    let text = ( player1.currentLife > 0 ) ? player1.name + ' has won the game !! Congratulations !!' : player1.name + ' has lost the game ! :( Try again !';
+    gameLayout[0].style.display = 'none';
+    gameLoopElement[0].style.display = 'none';
+
+    // update conclusion interface element.
+    document.getElementById('game-over-notification').innerHTML = text;
+    gameConclusionElement[0].style.display = 'block';
   },
 };
