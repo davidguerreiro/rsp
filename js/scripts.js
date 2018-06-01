@@ -46,7 +46,7 @@ var Game = {
         window.player1 = Object.create( Hero ).init( data );
 
         // create cpu player.
-        window.cpuPlayer = Object.create( Enemy ).init( enemyData.enemies[0] );
+        window.cpuPlayer = Object.create( Enemy ).init( enemyData.enemies[1] );
     },
 
     /**
@@ -146,8 +146,8 @@ var Engine = {
   sortOptions : function( options ) {
     let arrayOptions = [];
 
-    for( let key in options ) {
-      arrayOptions.push( [key, options[key] ] );
+    for( let key in options[0] ) {
+      arrayOptions.push( [key, options[0][key] ] );
     }
 
     // sort array.
@@ -184,33 +184,10 @@ var Engine = {
     range_3.value = 100;
 
     ranges.push( ...[range_1, range_2, range_3] );
+    console.log( ranges );
 
     return ranges;
   },
-
-/**
- * Returns option choosen by CPU
- * 
- * @param {object} current
- * @return {string} cpu_option
- */
- getCpuOption: function( current ) {
-  // TODO: Retrieve CPT player data from JSON object
-
-  let cpuOption     = '';
-  let randonNumber  = this.generateRandomNumber();
-  let options       = this.sortOptions( current );
-  options           = this.getOptionsRanges( options );
-
-  if( randonNumber <= options[0].value )
-    cpuOption = options[0].text;
-  else if( randonNumber <= options[1].value )
-    cpuOption = options[1].text;
-  else
-    cpuOption = options[2].text;
-
-  return cpuOption;
- },
 
   /**
    * Checks if any percentage overpass the min/max parameters and 
@@ -289,7 +266,19 @@ var Engine = {
    * @return void
    */
   play : function() {
-    console.log(this.innerHTML);
+    var human_choice = this.id;
+    var cpuChoice = cpuPlayer.getOption();
+    console.log( human_choice );
+    console.log( cpuChoice );
+    var result = Engine.hasPlayerWonRound( human_choice, cpuChoice );
+    
+    if ( result == 1 ) {
+      console.log( cpuPlayer.name + ' wins !' );
+    } else if ( result == 2 ) {
+      console.log( player1.name + ' wins !' );
+    } else {
+      console.log( 'Tie !' );
+    }
   },
 };
 

@@ -46,7 +46,7 @@ var Game = {
         window.player1 = Object.create( Hero ).init( data );
 
         // create cpu player.
-        window.cpuPlayer = Object.create( Enemy ).init( enemyData.enemies[0] );
+        window.cpuPlayer = Object.create( Enemy ).init( enemyData.enemies[1] );
     },
 
     /**
