@@ -40,6 +40,7 @@ var Game = {
         var data = {
             id : 0,
             name : 'David Guerreiro',
+            maxLife : 4,
         };
         window.player1 = Object.create( Hero ).init( data );
 
@@ -72,7 +73,7 @@ document.onreadystatechange = function () {
         var readerCallback = function( text ) {
             let data = JSON.parse( text );
             window.enemyData = data;
-            
+
             // init game.
             Game.init();
         };
