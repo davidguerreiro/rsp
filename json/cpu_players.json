@@ -3,7 +3,7 @@
     {
       "id"        : 0,
       "name"      : "Rocky",
-      "life"      : 2,
+      "currentLife"      : 2,
       "maxLife"   : 2,
       "type"      : "standard",
       "stats"     : [
@@ -24,7 +24,7 @@
     {
       "id"        : 1,
       "name"      : "Ramdy",
-      "life"      : 3,
+      "currentLife"      : 3,
       "maxLife"   : 3,
       "type"      : "standard",
       "stats"     : [
@@ -45,7 +45,7 @@
     {
       "id"        : 2,
       "name"      : "Smarty",
-      "life"      : 4,
+      "currentLife"      : 4,
       "maxLife"   : 4,
       "type"      : "smart",
       "stats"     : [

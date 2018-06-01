@@ -23,8 +23,7 @@ var Game = {
         console.log( cpuPlayer );
 
         // init game interface.
-        Engine.refreshInterface();
-        Game.initInterface();
+        this.initInterface();
     },
 
     /**
@@ -59,7 +58,13 @@ var Game = {
      */
     initInterface : function() {
         var options = document.getElementsByClassName('game-option');
-
+        document.getElementById('player-name').innerHTML = player1.name;
+        document.getElementById('player-loop-name').innerHTML = player1.name;
+        document.getElementById('enemy-name').innerHTML = cpuPlayer.name;
+        document.getElementById('enemy-loop-name').innerHTML = cpuPlayer.name;
+        
+        Engine.refreshPlayersData();
+        
         for (let i = 0; i < options.length; i++) { 
             options[i].addEventListener('click', Engine.play);
         }
@@ -184,9 +189,23 @@ var Engine = {
     range_3.value = 100;
 
     ranges.push( ...[range_1, range_2, range_3] );
-    console.log( ranges );
-
     return ranges;
+  },
+
+  /**
+   * Get action based on action code.
+   * 
+   * @param {string} actionCode Action code
+   * @return {string} actionName
+   */
+  getActionName : function( actionCode ) {
+    let actions = {
+      'rock' : 'Rock',
+      'scrss' : 'Scisors',
+      'paper' : 'Paper',
+    };
+
+    return actions[ actionCode ];
   },
 
   /**
@@ -245,16 +264,53 @@ var Engine = {
    * This method is used when the game is init and
    * once after every game loop.
    * 
+   * @param {object} winner Round winner data
+   * @param {object} looser Round looser data
+   * @param {string} playerAction Player action
+   * @param {string} enemyAction Enemy action
    * @return void
    */
-  refreshInterface : function() {
-    // init player 1 data.
-    document.getElementById('player-name').innerHTML = player1.name;
-    document.getElementById('player-life').innerHTML = player1.maxLife;
+  refreshInterface : function( winner, looser, playerAction, enemyAction ) {
+    let gameLoopElement = document.getElementsByClassName('game-loop');
+    let winnerText = document.getElementById('winner-text');
+    let looserText = document.getElementById('looser-text');
+    gameLoopElement = gameLoopElement[0];
 
-    // init cpu player data.
-    document.getElementById('enemy-name').innerHTML = cpuPlayer.name;
-    document.getElementById('enemy-life').innerHTML = cpuPlayer.maxLife;
+    // display game progress interface if not displayed.
+    if ( gameLoopElement.style.display !== 'block' ) {
+      gameLoopElement.style.display = 'block';
+    }
+
+
+    // update action screen.
+    document.getElementById('player-selected-action').innerHTML = this.getActionName( playerAction );
+    document.getElementById('enemy-selected-action').innerHTML = this.getActionName( enemyAction );
+
+    // update results text.
+    if ( Object.keys( winner ) == 0 && Object.keys( looser ) == 0 ) {
+      // tie.
+      winnerText.innerHTML = 'Game is Tied !';
+      looserText.innerHTML = 'Nobody looses a life this time ha !';
+    } else {
+      winnerText.innerHTML = winner.name + ' has won this match';
+      looserText.innerHTML = looser.name + ' has lost a life';
+    }
+
+    // update players data.
+    this.refreshPlayersData();
+  },
+
+  /**
+   * Refresh players data on the screen.
+   * 
+   * @return void
+   */
+  refreshPlayersData : function() {
+    // refresh player 1 data.
+    document.getElementById('player-life').innerHTML = player1.currentLife;
+
+    // refresh enemy data.
+    document.getElementById('enemy-life').innerHTML = cpuPlayer.currentLife;
   },
 
   /**
@@ -266,19 +322,29 @@ var Engine = {
    * @return void
    */
   play : function() {
-    var human_choice = this.id;
+    var winner = {};
+    var looser = {};
+    var playerChoice = this.id;
     var cpuChoice = cpuPlayer.getOption();
-    console.log( human_choice );
-    console.log( cpuChoice );
-    var result = Engine.hasPlayerWonRound( human_choice, cpuChoice );
+    var result = Engine.hasPlayerWonRound( playerChoice, cpuChoice );
+    let noTie  = ( typeof result == 'number' ) ? true : false;
     
-    if ( result == 1 ) {
-      console.log( cpuPlayer.name + ' wins !' );
-    } else if ( result == 2 ) {
-      console.log( player1.name + ' wins !' );
-    } else {
-      console.log( 'Tie !' );
+    if ( noTie && result == 2 ) {
+      cpuPlayer.currentLife--;
+      winner.name   = player1.name;
+      winner.action = playerChoice;
+      looser.name   = cpuPlayer.name;
+      looser.action = cpuChoice;
+    } else if ( noTie && result == 1 ) {
+      player1.currentLife--;
+      winner.name   = cpuPlayer.name;
+      winner.action = cpuChoice;
+      looser.name   = player1.name;
+      looser.action = playerChoice;
     }
+
+    // update screen data.
+    Engine.refreshInterface( winner, looser, playerChoice, cpuChoice );
   },
 };
 

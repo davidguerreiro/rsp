@@ -23,8 +23,7 @@ var Game = {
         console.log( cpuPlayer );
 
         // init game interface.
-        Engine.refreshInterface();
-        Game.initInterface();
+        this.initInterface();
     },
 
     /**
@@ -59,7 +58,13 @@ var Game = {
      */
     initInterface : function() {
         var options = document.getElementsByClassName('game-option');
-
+        document.getElementById('player-name').innerHTML = player1.name;
+        document.getElementById('player-loop-name').innerHTML = player1.name;
+        document.getElementById('enemy-name').innerHTML = cpuPlayer.name;
+        document.getElementById('enemy-loop-name').innerHTML = cpuPlayer.name;
+        
+        Engine.refreshPlayersData();
+        
         for (let i = 0; i < options.length; i++) { 
             options[i].addEventListener('click', Engine.play);
         }
