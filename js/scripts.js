@@ -7,6 +7,8 @@
 *
 */
 
+// load enemy data globally.
+
 var Game = {
 
     /**
@@ -37,16 +39,26 @@ var Game = {
         window.player1 = Object.create( Hero ).init( data );
          
         console.log( player1 );
-        console.log( 'we have come all this way here' );
+        console.log( enemyData );
 
         // create cpu player.
     },
 };
 
 document.onreadystatechange = function () {
-    if ( document.readyState == "interactive" ) {    
-        // init game.
-        Game.init();
+    if ( document.readyState == "interactive" ) {   
+        
+        // TODO: Look for a more elegant solution to solve this.
+        var readerCallback = function( text ) {
+            let data = JSON.parse( text );
+            window.enemyData = data;
+
+            // init game.
+            Game.init();
+        };
+
+        // load enemy data.
+        Engine.readJsonFile( './json/cpu_players.json', readerCallback );
     }
 }
 
@@ -85,7 +97,7 @@ var Engine = {
 
     rawFile.overrideMimeType( 'application/json' );
     rawFile.open( 'GET', file, true );
-    rawFile.onreadystatechange() = function() {
+    rawFile.onreadystatechange = function() {
       if (rawFile.readyState == 4 && rawFile.status == '200' ) {
         callback(rawFile.responseText);
       }
