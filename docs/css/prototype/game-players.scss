@@ -1,0 +1,22 @@
+.game-players {
+    
+    &__element {
+        display: inline-block;
+        width: 20rem;
+        background-color: $player-color;
+        margin-right: 1rem;
+
+        .name, .player-data {
+            padding-left: 1rem;
+        }
+
+        .player-data {
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        &--enemy {
+            background-color: $enemy-color;
+        }
+    }
+}

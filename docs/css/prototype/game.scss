@@ -1,0 +1,21 @@
+html {
+    font-size: $basefont;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.game {
+    padding-left:  $base-margin;
+}
+
+/** reset for buttons **/
+button {
+    font-size: 100%;
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+}

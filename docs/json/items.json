@@ -1,0 +1,18 @@
+{
+  "items" : [
+    {
+      "id"            : 0,
+      "name"          : "Potion",
+      "description"   : "Recovers one hearth",
+      "rate"          : 50,
+      "icon"          : "fa fa-flask"
+    },
+    {
+      "id"            : 1,
+      "name"          : "Scanner",
+      "description"   : "Reveals how your enemy plays",
+      "rate"          : 25,
+      "icon"          : "fa fa-tablet"
+    }
+  ]
+}

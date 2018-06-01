@@ -1,0 +1,67 @@
+{
+  "enemies": [
+    {
+      "id"        : 0,
+      "name"      : "Rocky",
+      "currentLife"      : 2,
+      "maxLife"   : 2,
+      "type"      : "standard",
+      "stats"     : [
+        {
+          "rock"    : 80,
+          "paper"   : 20,
+          "scrss"   : 0
+        }
+      ],
+      "tips" : [
+        {
+          "0"     : "Just check his name !",
+          "1"     : "I think he does not like to use scissors at all",
+          "2"     : "I would not use scissors. Just my opinion"
+        }
+      ]
+    },
+    {
+      "id"        : 1,
+      "name"      : "Ramdy",
+      "currentLife"      : 3,
+      "maxLife"   : 3,
+      "type"      : "standard",
+      "stats"     : [
+        {
+          "rock"    : 33.33,
+          "paper"   : 33.33,
+          "scrss"   : 33.33
+        }
+      ],
+      "tips" : [
+        {
+          "0"     : "Does his name give you any tip ?",
+          "1"     : "After several turns his behaviour could change. Try to track his previous decisions.",
+          "2"     : "Pay attention to what he use every round. That may be helpul for you to predict his next movement"
+        }
+      ]
+    },
+    {
+      "id"        : 2,
+      "name"      : "Smarty",
+      "currentLife"      : 4,
+      "maxLife"   : 4,
+      "type"      : "smart",
+      "stats"     : [
+        {
+          "rock"    : 0,
+          "paper"   : 0,
+          "scrss"   : 0
+        }
+      ],
+      "tips" : [
+        {
+          "0"     : "He has been watching all your previous games, so he already knows how you play.",
+          "1"     : "He is able to apdat his game based on what you do every round. Be careful.",
+          "2"     : "This is the best player in the game. "
+        }
+      ]
+    }
+  ]
+}

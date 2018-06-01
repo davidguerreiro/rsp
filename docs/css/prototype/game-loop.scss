@@ -1,0 +1,37 @@
+.game-loop {
+    display: none;
+
+    &__results {
+        padding-top: 1.8rem;
+
+        li {
+            padding-bottom: 0.7em;
+        }
+
+    }
+
+    .globalid-player-name, .globalid-enemy-name {
+        font-weight: bold;
+    }
+
+    &__choice-text {
+        font-size: 1.2rem;
+        border-bottom: 1px dotted $black;
+
+        &--enemy-choice {
+            color: $enemy-alternative-color;
+            border-bottom-color: $enemy-alternative-color;
+        }
+    }
+
+    &__notification {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+
+        &--secondary {
+            color: $grey;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    }
+}
