@@ -345,7 +345,7 @@ var Engine = {
     // update screen data.
     Engine.refreshInterface( winner, looser, playerChoice, cpuChoice );
 
-    // check if game over.]
+    // check if game over.
     if ( player1.currentLife == 0 || cpuPlayer.currentLife == 0 ) {
       Engine.gameOver();
     }
@@ -361,14 +361,17 @@ var Engine = {
    * @return void
    */
   gameOver : function() {
-    // hide action screen.
     let gameLayout = document.getElementsByClassName('game-layout');
-    let gameLoopElement = document.getElementsByClassName('game-loop');
+    let gameResultsElement = document.getElementsByClassName('game-loop__notification');
     let gameConclusionElement = document.getElementsByClassName('game-conclusion');
     let text = ( player1.currentLife > 0 ) ? player1.name + ' has won the game !! Congratulations !!' : player1.name + ' has lost the game ! :( Try again !';
-    gameLayout[0].style.display = 'none';
-    gameLoopElement[0].style.display = 'none';
 
+    // hide action screen and loop notifications.
+    for ( let i = 0; i < gameResultsElement.length; i++ ) {
+      gameResultsElement[ i ].style.display = 'none';
+    }
+    gameLayout[0].style.display = 'none';
+    
     // update conclusion interface element.
     document.getElementById('game-over-notification').innerHTML = text;
     gameConclusionElement[0].style.display = 'block';
