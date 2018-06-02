@@ -256,7 +256,7 @@ var Engine = {
     // update screen data.
     Engine.refreshInterface( winner, looser, playerChoice, cpuChoice );
 
-    // check if game over.]
+    // check if game over.
     if ( player1.currentLife == 0 || cpuPlayer.currentLife == 0 ) {
       Engine.gameOver();
     }
