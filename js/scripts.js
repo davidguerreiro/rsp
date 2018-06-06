@@ -271,14 +271,14 @@ var Engine = {
    * @return void
    */
   refreshInterface : function( winner, looser, playerAction, enemyAction ) {
-    let gameLoopElement = document.getElementsByClassName('game-loop');
-    let winnerText = document.getElementById('winner-text');
-    let looserText = document.getElementById('looser-text');
+    let gameLoopElement = document.querySelector('.game-loop');
+    let winnerText = document.querySelector('#winner-text');
+    let looserText = document.querySelector('#looser-text');
     gameLoopElement = gameLoopElement[0];
 
     // update action screen.
-    document.getElementById('player-selected-action').innerHTML = this.getActionName( playerAction );
-    document.getElementById('enemy-selected-action').innerHTML = this.getActionName( enemyAction );
+    document.querySelector('#player-selected-action').innerHTML = this.getActionName( playerAction );
+    document.querySelector('#enemy-selected-action').innerHTML = this.getActionName( enemyAction );
 
     // update results text.
     if ( Object.keys( winner ) == 0 && Object.keys( looser ) == 0 ) {
@@ -306,10 +306,10 @@ var Engine = {
    */
   refreshPlayersData : function() {
     // refresh player 1 data.
-    document.getElementById('player-life').innerHTML = player1.currentLife;
+    document.querySelector('#player-life').innerHTML = player1.currentLife;
 
     // refresh enemy data.
-    document.getElementById('enemy-life').innerHTML = cpuPlayer.currentLife;
+    document.querySelector('#enemy-life').innerHTML = cpuPlayer.currentLife;
   },
 
   /**
@@ -362,15 +362,15 @@ var Engine = {
    */
   gameOver : function() {
     // hide action screen.
-    let gameLayout = document.getElementsByClassName('game-layout');
-    let gameLoopElement = document.getElementsByClassName('game-loop');
-    let gameConclusionElement = document.getElementsByClassName('game-conclusion');
+    let gameLayout = document.querySelector('.game-layout');
+    let gameLoopElement = document.querySelector('.game-loop');
+    let gameConclusionElement = document.querySelector('.game-conclusion');
     let text = ( player1.currentLife > 0 ) ? player1.name + ' has won the game !! Congratulations !!' : player1.name + ' has lost the game ! :( Try again !';
     gameLayout[0].style.display = 'none';
     gameLoopElement[0].style.display = 'none';
 
     // update conclusion interface element.
-    document.getElementById('game-over-notification').innerHTML = text;
+    document.querySelector('#game-over-notification').innerHTML = text;
     gameConclusionElement[0].style.display = 'block';
   },
 };
